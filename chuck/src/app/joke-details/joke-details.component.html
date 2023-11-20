@@ -1,1 +1,10 @@
-{{jokeTitle}}
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{jokeTitle | uppercase}}</mat-card-title>
+        <mat-card-subtitle>{{jokeDate | date: 'dd-MM-YYYY'}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        {{jokeDetails | suffix: '!' : 3}}
+    </mat-card-content>
+</mat-card>
