@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { JokeDetailsComponent } from './joke-details/joke-details.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'chuck';
+  @ViewChild(JokeDetailsComponent) jokeDetails: JokeDetailsComponent | undefined;
+  jokeTitle: string = "Good Joke";
+
+
+
+  onJokeLiked(title: string): void {
+    console.log(`${title} joke was liked`);
+  }
+
+  triggerMethod(): void {
+    console.log(this.jokeDetails);
+    this.jokeDetails?.likeJoke("Custom joke");
+  }
 }
