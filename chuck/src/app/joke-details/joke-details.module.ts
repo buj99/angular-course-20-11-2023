@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { HighlightDirectiveDirective } from './directives/highlight-directive.directive';
+import { JokeDetailsRoutingModule } from './joke-details.routing.module';
 @NgModule({
   declarations: [JokeDetailsComponent, HighlightDirectiveDirective],
   imports: [
@@ -16,6 +17,7 @@ import { HighlightDirectiveDirective } from './directives/highlight-directive.di
     SuffixPipe,
     FormsModule,
     MatInputModule,
+    JokeDetailsRoutingModule
   ],
   exports: [JokeDetailsComponent],
 })
