@@ -2,7 +2,6 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[appHighlightDirective]',
-  
 })
 export class HighlightDirectiveDirective {
   @Input() color: string = '';
@@ -11,8 +10,6 @@ export class HighlightDirectiveDirective {
 
     this.element.nativeElement.innerHtml =
       this.element.nativeElement.innerHtml + 'custom text';
-
-    debugger;
   }
 
   @HostListener('mouseenter') onMouseEnter() {

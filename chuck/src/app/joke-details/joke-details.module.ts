@@ -4,7 +4,7 @@ import { JokeDetailsComponent } from './joke-details.component';
 import { MatCardModule } from '@angular/material/card';
 import { SuffixPipe } from '../pipes/suffix.pipe';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { HighlightDirectiveDirective } from './directives/highlight-directive.directive';
 import { JokeDetailsRoutingModule } from './joke-details.routing.module';
@@ -17,8 +17,9 @@ import { JokeDetailsService } from './joke-details.service';
     MatButtonModule,
     SuffixPipe,
     FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
-    JokeDetailsRoutingModule
+    JokeDetailsRoutingModule,
   ],
   exports: [JokeDetailsComponent],
   //providers: [JokeDetailsService]

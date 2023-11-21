@@ -1,32 +1,78 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>{{ joke.title | uppercase }}</mat-card-title>
-    <mat-card-subtitle>{{ joke.date | date : "dd-MM-YYYY" }}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    {{ joke.details | suffix : "!" : 3 }}
+<ng-container *ngFor="let joke of jokeDetailsService.jokes">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ joke.title | uppercase }}</mat-card-title>
+      <mat-card-subtitle>{{
+        joke.date | date : "dd-MM-YYYY"
+      }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      {{ joke.details | suffix : "!" : 3 }}
 
-    <input matInput type="text" [(ngModel)]="commentVal" />
-    <button mat-raised-button (click)="addButton()">Add comment</button>
-    <section>
-      <div [ngSwitch]="joke.comments.length">
-        <ng-container *ngSwitchCase="0"
-          ><p appHighlightDirective [color]="'red'">
-            Sry, no comments
-          </p></ng-container
-        >
-        <ng-container *ngSwitchCase="1">
-          {{ joke.comments[0] }}
-        </ng-container>
-        <ng-container *ngSwitchDefault>
-          <p *ngFor="let comment of joke.comments">
-            {{ comment }}
-          </p>
-        </ng-container>
-      </div>
-    </section>
-  </mat-card-content>
-  <mat-card-footer>
-    <button mat-raised-button (click)="likeJoke(jokeTitle)">Like</button>
-  </mat-card-footer>
-</mat-card>
+      <input matInput type="text" [(ngModel)]="commentVal" />
+      <button mat-raised-button (click)="addButton()">Add comment</button>
+      <section>
+        <div [ngSwitch]="joke.comments.length">
+          <ng-container *ngSwitchCase="0"
+            ><p appHighlightDirective [color]="'red'">
+              Sry, no comments
+            </p></ng-container
+          >
+          <ng-container *ngSwitchCase="1">
+            {{ joke.comments[0] }}
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <p *ngFor="let comment of joke.comments">
+              {{ comment }}
+            </p>
+          </ng-container>
+        </div>
+      </section>
+    </mat-card-content>
+    <mat-card-footer>
+      <button mat-raised-button (click)="likeJoke(jokeTitle)">Like</button>
+    </mat-card-footer>
+  </mat-card>
+</ng-container>
+
+<form [formGroup]="addJokeFormGroup">
+  <label
+    >Joke:
+    <input type="text" formControlName="joke" />
+  </label>
+  <div
+    *ngIf="
+      !addJokeFormGroup.controls['joke'].valid &&
+      addJokeFormGroup.controls['joke'].touched
+    "
+  >
+    Joke is required!
+  </div>
+   
+  <div
+    *ngIf="
+      addJokeFormGroup.controls['joke'].errors &&
+      addJokeFormGroup.controls['joke'].errors['minlength']
+    "
+  >
+        Joke be at least 4 characters long.  
+  </div>
+
+  <label
+    >Author:
+    <input type="text" formControlName="author" />
+  </label>
+  <div
+    *ngIf="
+      !addJokeFormGroup.controls['author'].valid &&
+      addJokeFormGroup.controls['author'].touched
+    "
+  >
+    Author is required!
+  </div>
+
+  <button (click)="submitFrom()" [disabled]="!addJokeFormGroup.valid">
+    Add joke
+  </button>
+  <button (click)="resetFrom()">ResetForm</button>
+</form>
