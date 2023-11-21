@@ -1,7 +1,8 @@
 <app-joke-list></app-joke-list>
 
+<app-joke-details
+  [jokeTitle]="jokeTitle"
+  (jokeLiked)="onJokeLiked($event)"
+></app-joke-details>
 
-<app-joke-details [jokeTitle]="jokeTitle"
-                  (jokeLiked)="onJokeLiked($event)"></app-joke-details>
-
-<button (click)="triggerMethod()"> Trigger </button>
+<button (click)="triggerMethod()">Trigger</button>

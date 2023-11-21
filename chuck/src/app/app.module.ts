@@ -7,16 +7,14 @@ import { JokeDetailsModule } from './joke-details/joke-details.module';
 import { JokeListComponent } from './joke-list/joke-list.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     JokeDetailsModule,
-    JokeListComponent
+    JokeListComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
