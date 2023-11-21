@@ -12,6 +12,7 @@ import {
 import { Joke } from '../models/joke.model';
 import { JokeDetailsService } from './joke-details.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { aaaValidator } from './validators/aaa.validator';
 
 @Component({
   selector: 'app-joke-details',
@@ -33,7 +34,7 @@ export class JokeDetailsComponent implements OnInit, OnChanges {
   constructor() {
     this.addJokeFormGroup = new FormGroup({
       joke: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      author: new FormControl('', [Validators.required]),
+      author: new FormControl('', [Validators.required, aaaValidator]),
     });
   }
   ngOnInit(): void {

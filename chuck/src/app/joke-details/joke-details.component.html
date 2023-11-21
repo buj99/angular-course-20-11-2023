@@ -70,6 +70,12 @@
   >
     Author is required!
   </div>
+  <div
+    *ngIf="
+      addJokeFormGroup.controls['author'].errors &&
+      addJokeFormGroup.controls['author'].errors['doesntStratWithaaa']
+    "
+  ></div>
 
   <button (click)="submitFrom()" [disabled]="!addJokeFormGroup.valid">
     Add joke
