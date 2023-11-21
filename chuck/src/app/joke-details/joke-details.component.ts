@@ -11,7 +11,12 @@ import {
 } from '@angular/core';
 import { Joke } from '../models/joke.model';
 import { JokeDetailsService } from './joke-details.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { aaaValidator } from './validators/aaa.validator';
 
 @Component({
@@ -34,7 +39,7 @@ export class JokeDetailsComponent implements OnInit, OnChanges {
   constructor() {
     this.addJokeFormGroup = new FormGroup({
       joke: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      author: new FormControl('', [Validators.required, aaaValidator]),
+      author: new FormControl('', [Validators.required, aaaValidator()]),
     });
   }
   ngOnInit(): void {
@@ -74,5 +79,18 @@ export class JokeDetailsComponent implements OnInit, OnChanges {
   resetFrom() {
     this.addJokeFormGroup.controls['joke'].reset();
     this.addJokeFormGroup.controls['author'].reset();
+  }
+
+  public customValidator(startsWithLetter: string) {
+    return (control: AbstractControl) => {
+      console.log(control.value);
+      if (control.value[0] === startsWithLetter) {
+        return null;
+      } else {
+        return {
+          startsWithLetterValidation: `the input doesn't start with ${startsWithLetter}`,
+        };
+      }
+    };
   }
 }
