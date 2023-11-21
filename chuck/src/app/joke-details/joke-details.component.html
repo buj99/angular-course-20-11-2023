@@ -73,9 +73,11 @@
   <div
     *ngIf="
       addJokeFormGroup.controls['author'].errors &&
-      addJokeFormGroup.controls['author'].errors['doesntStratWithaaa']
+      addJokeFormGroup.controls['author'].errors['badValue']
     "
-  ></div>
+  >
+    doesn't start with aaa
+  </div>
 
   <button (click)="submitFrom()" [disabled]="!addJokeFormGroup.valid">
     Add joke

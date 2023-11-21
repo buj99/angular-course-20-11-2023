@@ -6,6 +6,6 @@ export function aaaValidator(): ValidatorFn {
     if (typeof control.value === 'string') {
       invalid = control.value.startsWith('aaa');
     }
-    return invalid ? { badValue: 'doesntStratWithaaa' } : null;
+    return !invalid ? { badValue: 'author should start with aaa' } : null;
   };
 }
