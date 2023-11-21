@@ -1,5 +1,6 @@
 export interface Joke {
-  text: string;
+  title: string;
+  details: string;
   date: Date;
   comments: string[];
 }

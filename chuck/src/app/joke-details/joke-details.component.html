@@ -1,25 +1,25 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{ jokeTitle | uppercase }}</mat-card-title>
-    <mat-card-subtitle>{{ jokeDate | date : "dd-MM-YYYY" }}</mat-card-subtitle>
+    <mat-card-title>{{ joke.title | uppercase }}</mat-card-title>
+    <mat-card-subtitle>{{ joke.date | date : "dd-MM-YYYY" }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    {{ jokeDetails | suffix : "!" : 3 }}
+    {{ joke.details | suffix : "!" : 3 }}
 
     <input matInput type="text" [(ngModel)]="commentVal" />
     <button mat-raised-button (click)="addButton()">Add comment</button>
     <section>
-      <div [ngSwitch]="jokesComments.length">
+      <div [ngSwitch]="joke.comments.length">
         <ng-container *ngSwitchCase="0"
           ><p appHighlightDirective [color]="'red'">
             Sry, no comments
           </p></ng-container
         >
         <ng-container *ngSwitchCase="1">
-          {{ jokesComments[0] }}
+          {{ joke.comments[0] }}
         </ng-container>
         <ng-container *ngSwitchDefault>
-          <p *ngFor="let comment of jokesComments">
+          <p *ngFor="let comment of joke.comments">
             {{ comment }}
           </p>
         </ng-container>

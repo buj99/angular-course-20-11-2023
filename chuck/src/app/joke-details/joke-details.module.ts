@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { HighlightDirectiveDirective } from './directives/highlight-directive.directive';
 import { JokeDetailsRoutingModule } from './joke-details.routing.module';
+import { JokeDetailsService } from './joke-details.service';
 @NgModule({
   declarations: [JokeDetailsComponent, HighlightDirectiveDirective],
   imports: [
@@ -20,5 +21,6 @@ import { JokeDetailsRoutingModule } from './joke-details.routing.module';
     JokeDetailsRoutingModule
   ],
   exports: [JokeDetailsComponent],
+  //providers: [JokeDetailsService]
 })
 export class JokeDetailsModule {}
