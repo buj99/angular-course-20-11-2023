@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JokeDetailsModule } from './joke-details/joke-details.module';
 import { JokeListComponent } from './joke-list/joke-list.component';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { JokeListComponent } from './joke-list/joke-list.component';
     BrowserModule,
     BrowserAnimationsModule,
     JokeDetailsModule,
-    JokeListComponent
+    JokeListComponent,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
