@@ -8,9 +8,7 @@ import { JokeListComponent } from './joke-list/joke-list.component';
 import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -19,6 +17,6 @@ import { AppRoutingModule } from './app.routing.module';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
